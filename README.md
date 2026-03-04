@@ -22,7 +22,7 @@
 
 **扫码加入微信群交流**
 
-![微信群二维码](images/wechat.jpg)
+<img src="images/wechat.jpg" alt="微信群二维码" width="200" />
 
 </div>
 
