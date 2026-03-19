@@ -251,7 +251,7 @@ if [ "$start_now" = "y" ] || [ "$start_now" = "Y" ]; then
     echo -e "${BOLD}${GREEN}🎉 安装成功！服务正在启动...${NC}"
     echo -e "${BOLD}${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
-    echo -e "${BOLD}服务器地址：${NC}http://localhost:8000/mcp"
+    echo -e "${BOLD}服务器地址：${NC}http://localhost:3304/mcp"
     echo ""
     echo -e "${BOLD}下一步：在 Cursor 中配置 MCP${NC}"
     echo ""
@@ -262,7 +262,7 @@ if [ "$start_now" = "y" ] || [ "$start_now" = "Y" ]; then
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=Developer&name=YourName"
+      "url": "http://localhost:3304/mcp?role=Developer&name=YourName"
     }
   }
 }

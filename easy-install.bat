@@ -251,7 +251,7 @@ if /i "!START_NOW!"=="y" (
     echo 🎉 安装成功！服务正在启动...
     echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     echo.
-    echo 服务器地址：http://localhost:8000/mcp
+    echo 服务器地址：http://localhost:3304/mcp
     echo.
     echo 下一步：在 Cursor 中配置 MCP
     echo.
@@ -261,7 +261,7 @@ if /i "!START_NOW!"=="y" (
     echo {
     echo   "mcpServers": {
     echo     "lanhu": {
-    echo       "url": "http://localhost:8000/mcp?role=Developer&name=YourName"
+    echo       "url": "http://localhost:3304/mcp?role=Developer&name=YourName"
     echo     }
     echo   }
     echo }

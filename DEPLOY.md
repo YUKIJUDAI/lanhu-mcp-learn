@@ -25,7 +25,7 @@ docker-compose ps
 docker-compose logs -f lanhu-mcp
 
 # 4. 检查服务是否正常运行
-curl http://localhost:8000/health
+curl http://localhost:3304/health
 ```
 
 ### 方式二：使用 Docker 命令
@@ -37,7 +37,7 @@ docker build -t lanhu-mcp-server .
 # 2. 运行容器
 docker run -d \
   --name lanhu-mcp \
-  -p 8000:8000 \
+  -p 3304:3304 \
   --env-file .env \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/logs:/app/logs \
@@ -55,13 +55,13 @@ docker ps | grep lanhu-mcp
 
 ### 1. 检查服务健康状态
 ```bash
-curl http://localhost:8000/health
+curl http://localhost:3304/health
 # 预期响应: {"status": "ok"} 或类似的健康检查响应
 ```
 
 ### 2. 访问 MCP 端点
 ```bash
-curl http://localhost:8000/mcp?role=Developer&name=TestUser
+curl http://localhost:3304/mcp?role=Developer&name=TestUser
 ```
 
 ### 3. 查看日志确认
@@ -89,7 +89,7 @@ docker logs lanhu-mcp | grep "Server started"
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=Backend&name=John"
+      "url": "http://localhost:3304/mcp?role=Backend&name=John"
     }
   }
 }
@@ -108,7 +108,7 @@ docker logs lanhu-mcp | grep "Server started"
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=Developer&name=Jane"
+      "url": "http://localhost:3304/mcp?role=Developer&name=Jane"
     }
   }
 }
@@ -203,7 +203,7 @@ docker-compose restart lanhu-mcp
 
 ### 3. 端口冲突
 
-如果 8000 端口被占用，修改配置：
+如果 3304 端口被占用，修改配置：
 
 **方式一：修改 .env 文件**
 ```env
@@ -213,7 +213,7 @@ SERVER_PORT=8001
 **方式二：修改 docker-compose.yml**
 ```yaml
 ports:
-  - "8001:8000"  # 宿主机8001端口映射到容器8000端口
+  - "8001:3304"  # 宿主机8001端口映射到容器3304端口
 ```
 
 重启服务后更新 AI 客户端的连接 URL。
@@ -373,7 +373,7 @@ server {
     server_name your-domain.com;
 
     location / {
-        proxy_pass http://localhost:8000;
+        proxy_pass http://localhost:3304;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -433,7 +433,7 @@ docker-compose --env-file .env.dev up -d
 ### 2. 查看 MCP 工具列表
 
 ```bash
-curl http://localhost:8000/mcp?role=Developer&name=Test | jq '.tools[].name'
+curl http://localhost:3304/mcp?role=Developer&name=Test | jq '.tools[].name'
 ```
 
 ### 3. 监控服务健康
@@ -441,7 +441,7 @@ curl http://localhost:8000/mcp?role=Developer&name=Test | jq '.tools[].name'
 创建简单的健康检查脚本 `health-check.sh`:
 ```bash
 #!/bin/bash
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/mcp)
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3304/mcp)
 if [ $STATUS -eq 200 ]; then
     echo "✅ Service is healthy"
     exit 0

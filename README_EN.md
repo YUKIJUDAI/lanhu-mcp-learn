@@ -147,7 +147,7 @@ Update `FEISHU_USER_ID_MAP` dictionary to support @mention feature.
 ```bash
 # Server Configuration
 export SERVER_HOST="0.0.0.0"       # Server listen address
-export SERVER_PORT=8000            # Server port
+export SERVER_PORT=3304            # Server port
 
 # Data Storage
 export DATA_DIR="./data"           # Data storage directory
@@ -171,13 +171,13 @@ export DEBUG="false"               # Debug mode (true/false)
 python lanhu_mcp_server.py
 ```
 
-Server will start at `http://localhost:8000/mcp`.
+Server will start at `http://localhost:3304/mcp`.
 
 **Method 2: Docker Deployment**
 
 ```bash
 docker build -t lanhu-mcp-server .
-docker run -p 8000:8000 \
+docker run -p 3304:3304 \
   -e LANHU_COOKIE="your_cookie" \
   -e FEISHU_WEBHOOK_URL="your_feishu_webhook_url" \
   -v $(pwd)/data:/app/data \
@@ -200,7 +200,7 @@ Configure in MCP-compatible AI clients (e.g., Claude Code, Cursor, Windsurf):
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=Backend&name=John"
+      "url": "http://localhost:3304/mcp?role=Backend&name=John"
     }
   }
 }

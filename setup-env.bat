@@ -65,7 +65,7 @@ echo # 服务器主机地址
 echo SERVER_HOST="0.0.0.0"
 echo.
 echo # 服务器端口
-echo SERVER_PORT=8000
+echo SERVER_PORT=3304
 echo.
 echo # ==============================================
 echo # 飞书机器人配置（可选）
@@ -140,7 +140,7 @@ if not errorlevel 1 (
     echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     echo.
     echo 📝 服务访问地址:
-    echo    http://localhost:8000/mcp?role=开发^&name=你的名字
+    echo    http://localhost:3304/mcp?role=开发^&name=你的名字
     echo.
     echo 🔧 常用命令:
     echo    查看日志: %COMPOSE_CMD% logs -f lanhu-mcp
@@ -164,7 +164,7 @@ if not errorlevel 1 (
     echo.
     echo 💡 常见问题排查:
     echo    1. Cookie 是否正确？
-    echo    2. 端口 8000 是否被占用？
+    echo    2. 端口 3304 是否被占用？
     echo    3. Docker Desktop 是否正在运行？
     echo    4. Docker 资源是否充足？
     echo    5. 确认 Docker Compose 命令格式是否正确（docker compose / docker-compose）

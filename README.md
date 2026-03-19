@@ -229,7 +229,7 @@ DEFAULT_FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/your-webh
 ```bash
 # 服务器配置
 export SERVER_HOST="0.0.0.0"       # 服务器监听地址
-export SERVER_PORT=8000            # 服务器端口
+export SERVER_PORT=3304            # 服务器端口
 
 # 数据存储
 export DATA_DIR="./data"           # 数据存储目录
@@ -259,7 +259,7 @@ docker-compose logs -f            # 查看日志
 docker-compose down              # 停止
 ```
 
-服务器将在 `http://localhost:8000/mcp` 启动
+服务器将在 `http://localhost:3304/mcp` 启动
 
 ### 连接到 AI 客户端
 
@@ -270,7 +270,7 @@ docker-compose down              # 停止
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=Developer&name=YourName"
+      "url": "http://localhost:3304/mcp?role=Developer&name=YourName"
     }
   }
 }

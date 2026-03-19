@@ -97,13 +97,13 @@ echo ""
 echo "🚀 正在启动蓝湖 MCP 服务器..."
 echo "=================================="
 echo ""
-echo "服务器地址：http://localhost:8000/mcp"
+echo "服务器地址：http://localhost:3304/mcp"
 echo ""
 echo "在 Cursor 中连接，请添加以下配置到 MCP 配置文件："
 echo "{
   \"mcpServers\": {
     \"lanhu\": {
-      \"url\": \"http://localhost:8000/mcp?role=Developer&name=YourName\"
+      \"url\": \"http://localhost:3304/mcp?role=Developer&name=YourName\"
     }
   }
 }"

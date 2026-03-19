@@ -97,8 +97,8 @@ When using Lanhu MCP Server, please follow these security best practices:
   **部署在受信任的网络中**或使用 VPN/防火墙规则
 - **Use HTTPS** when deploying in production
   在生产环境中部署时**使用 HTTPS**
-- **Limit access** to the MCP server port (default: 8000)
-  **限制对** MCP 服务器端口的访问（默认：8000）
+- **Limit access** to the MCP server port (default: 3304)
+  **限制对** MCP 服务器端口的访问（默认：3304）
 - **Consider using authentication** for the MCP endpoint
   **考虑为** MCP 端点使用身份验证
 

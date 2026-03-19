@@ -60,7 +60,7 @@ ENV HTTP_PROXY=
 ENV HTTPS_PROXY=
 
 # 暴露端口
-EXPOSE 8000
+EXPOSE 3304
 
 # 运行MCP服务器（使用HTTP传输）
 CMD ["python", "lanhu_mcp_server.py"]
