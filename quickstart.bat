@@ -127,7 +127,7 @@ echo 在 Cursor 中连接，请添加以下配置到 MCP 配置文件：
 echo {
 echo   "mcpServers": {
 echo     "lanhu": {
-echo       "url": "http://localhost:3304/mcp?role=Developer&name=YourName"
+echo       "url": "http://localhost:3304/mcp?role=Developer&name=Judai"
 echo     }
 echo   }
 echo }

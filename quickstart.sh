@@ -7,21 +7,33 @@ echo "🎨 蓝湖 MCP 服务器 - 快速启动"
 echo "=================================="
 echo ""
 
-# 检查 Python 版本
-if ! command -v python3 &> /dev/null; then
+# 检查 Python 版本（支持 python3 或 python）
+PYTHON_CMD=""
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
     echo "❌ 错误：未安装 Python 3"
     echo "请安装 Python 3.10 或更高版本"
     exit 1
 fi
 
-PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
-echo "✅ Python 版本：$PYTHON_VERSION"
+PYTHON_VERSION=$($PYTHON_CMD -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+
+if ! $PYTHON_CMD -c 'import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)'; then
+    echo "❌ 错误：当前 Python 版本为 $PYTHON_VERSION"
+    echo "请安装 Python 3.10 或更高版本"
+    exit 1
+fi
+
+echo "✅ Python 版本：$PYTHON_VERSION（使用命令：$PYTHON_CMD）"
 
 # 检查虚拟环境是否存在
 if [ ! -d "venv" ]; then
     echo ""
     echo "📦 正在创建虚拟环境..."
-    python3 -m venv venv
+    $PYTHON_CMD -m venv venv
     echo "✅ 虚拟环境创建完成"
 fi
 
@@ -103,7 +115,7 @@ echo "在 Cursor 中连接，请添加以下配置到 MCP 配置文件："
 echo "{
   \"mcpServers\": {
     \"lanhu\": {
-      \"url\": \"http://localhost:3304/mcp?role=Developer&name=YourName\"
+      \"url\": \"http://localhost:3304/mcp?role=Developer&name=Judai\"
     }
   }
 }"

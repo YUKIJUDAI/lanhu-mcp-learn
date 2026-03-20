@@ -6032,7 +6032,7 @@ if __name__ == "__main__":
     # 运行MCP服务器
     # 使用HTTP传输方式，支持环境变量配置
     SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
-    SERVER_PORT = int(os.getenv("SERVER_PORT", "8100"))
+    SERVER_PORT = int(os.getenv("SERVER_PORT", "3304"))
     mcp.run(transport="http", path="/mcp", host=SERVER_HOST, port=SERVER_PORT)
 
 
